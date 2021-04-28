@@ -20,16 +20,18 @@ except urllib.error.URLError as e:
     )
     # return
 
-# df_tweets = get_tweets()
-
-price_to_filter = st.slider('price', int(df.price.min()), int(df.price.max()), int(df.price.mean()))  # min: 0h, max: 23h, default: 17h
+price_to_filter = st.slider('price', int(df.price.min()), int(df.price.max()), int(df.price.median()))  # min: 0h, max: 23h, default: 17h
 
 # st.write(df.price)
 
 st.write(price_to_filter)
-# st.table(df)
+
+# # st.table(df)
+#
 
 st.map(df[['latitude', 'longitude']])
+
+#
 
 st.bar_chart(df.neighbourhood_cleansed.value_counts())
 
